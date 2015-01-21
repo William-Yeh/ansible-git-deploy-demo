@@ -1,0 +1,28 @@
+- hosts: all
+  sudo: True
+  roles:
+    - geerlingguy.git
+    - kun432.build-essential
+
+  tasks:
+    - name: clone project from git repo
+      git: repo={{ project_git_repo }} dest={{ project_source_path }}
+
+    - name: install prerequisite libs
+      apt: name=libssl-dev state=present update_cache=yes
+
+    - name: compile
+      command: make
+      args:
+        chdir: "{{ project_source_path }}"
+        creates: "{{ project_source_path }}/wrk"
+
+    - name: install
+      command: cp wrk /usr/local/bin
+      args:
+        chdir: "{{ project_source_path }}"
+        creates: /usr/local/bin/wrk
+
+  vars:
+    - project_git_repo: https://github.com/wg/wrk.git
+    - project_source_path: /tmp/wrk

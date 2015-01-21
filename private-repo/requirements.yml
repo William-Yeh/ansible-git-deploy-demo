@@ -1,0 +1,6 @@
+---
+- src: geerlingguy.git
+  path: roles/
+
+- src: bfmartin.ssh_known_hosts
+  path: roles/

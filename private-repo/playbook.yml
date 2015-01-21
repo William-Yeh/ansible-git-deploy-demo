@@ -1,0 +1,14 @@
+- hosts: all
+  sudo: True
+  roles:
+    - geerlingguy.git
+    - { role: bfmartin.ssh_known_hosts, host: github.com }
+
+  tasks:
+    - name: clone project from git repo
+      sudo: False
+      git: repo={{ project_git_repo }} dest={{ project_source_path }}
+
+  vars:
+    - project_git_repo: git@github.com:ACCOUNT/PROJECT.git
+    - project_source_path: /tmp/project

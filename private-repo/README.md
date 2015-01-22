@@ -9,6 +9,13 @@ Install roles from Ansible Galaxy:
 $ ansible-galaxy install -f  -r requirements.yml
 ```
 
+Modify `project_git_repo` in `playbook.yml`:
+
+```
+$ vi playbook.yml
+```
+
+
 
 ## Usage: using Vagrant
 

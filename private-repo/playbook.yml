@@ -3,6 +3,7 @@
   roles:
     - geerlingguy.git
     - { role: bfmartin.ssh_known_hosts, host: github.com }
+    - williamyeh.sudo-agent-forwarding
 
   tasks:
     - name: clone project from git repo

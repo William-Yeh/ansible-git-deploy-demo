@@ -4,3 +4,6 @@
 
 - src: bfmartin.ssh_known_hosts
   path: roles/
+
+- src: williamyeh.sudo-agent-forwarding
+  path: roles/
